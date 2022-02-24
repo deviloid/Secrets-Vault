@@ -1,0 +1,5 @@
+*.code-workspace
+*/migrations/*
+*/__pycache__/*
+*.sqlite3
+.env
