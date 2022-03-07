@@ -1,4 +1,3 @@
-import imp
 from msilib.schema import Class
 from pyexpat import model
 from django.db import models
@@ -13,7 +12,11 @@ class Secret(models.Model):
     passwd = models.CharField(
         max_length=200, blank=False, null=False, verbose_name="Password"
     )
+    passwd_hashed = models.CharField(
+        max_length=200, blank=False, null=False, verbose_name="Password Hash"
+    )
     created = models.DateTimeField(auto_now_add=True)
+    encrypted = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return str(self.user) + " - " + self.key
